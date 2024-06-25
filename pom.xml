@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.17</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.irkut.tc</groupId>
+    <artifactId>io</artifactId>
+    <name>io</name>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <description>io</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <!-- The main class to start the executing "java -jar"-->
+        <start-class>com.irkut.tc.io.IoApplication</start-class>
+        <teamcenter.version>10000.1.0</teamcenter.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.30</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>logback-classic</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>1.6.12</version>
+            </dependency>
+            <!-- LOGGING DEPENDENCIES-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.0.4</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/commons-logging-1.0.4.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>org.jacorb</groupId>
+                <artifactId>jacorb</artifactId>
+                <version>3.9</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.istack</groupId>
+                <artifactId>istack-commons-runtime</artifactId>
+                <version>3.0.10</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jacorb</groupId>
+                <artifactId>jacorb-omgapi</artifactId>
+                <version>3.9</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>3.1.0</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/org.apache.commons.httpclient_3.1.0.v201012070820.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.16.1</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/commons-io-2.16.1.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>commons-httpclient</groupId>
+                <artifactId>contrib</artifactId>
+                <version>3.1.0</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/commons-httpclient-contrib-3.1.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>commons</groupId>
+                <artifactId>codec</artifactId>
+                <version>1.2</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/commons-codec-1.2.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>4.4.4</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/httpcore-4.4.4.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>2.3.5</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/jaxb-runtime-2.3.5.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>xerces</groupId>
+                <artifactId>xercesImpl</artifactId>
+                <version>2.8.0</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/xercesImpl-2.8.0.jar</systemPath>
+            </dependency>
+
+            <!-- XML DEPENDENCIES-->
+            <dependency>
+                <groupId>org.apache.xmlrpc</groupId>
+                <artifactId>xmlrpc-client</artifactId>
+                <version>3.1.3</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/xmlrpc-client-3.1.3.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlrpc</groupId>
+                <artifactId>xmlrpc-common</artifactId>
+                <version>3.1.3</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/xmlrpc-common-3.1.3.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlrpc</groupId>
+                <artifactId>xmlrpc-server</artifactId>
+                <version>3.1.3</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/xmlrpc-server-3.1.3.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>2.3.1</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/jaxb-api-2.3.1.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.14</version>
+            </dependency>
+            <dependency>
+                <groupId>jsonrpc</groupId>
+                <artifactId>jsonrpc4j</artifactId>
+                <version>1.6</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/jsonrpc4j-1.6.jar</systemPath>
+            </dependency>
+
+            <!-- TEAMCENTER SOA DEPENDENCIES -->
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaClient</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaClient_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaAdministrationStrong</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaAdministrationStrong_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaAdministrationTypes</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaAdministrationTypes_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaCommon</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaCommon_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaCoreStrong</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaCoreStrong_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaCoreTypes</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaCoreTypes_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaQuerryStrong</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaQueryStrong_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaQuery</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaQueryTypes_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaStrongModel</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaStrongModel_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaWorkflowStrong</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaWorkflowStrong_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaWorkflowTypes</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaWorkflowTypes_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaBomStrong</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaBomStrong_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaBomTypes</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaBomTypes_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaCadStrong</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaCadStrong_10000.1.0.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.soa</groupId>
+                <artifactId>TcSoaCadTypes</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/TcSoaCadTypes_10000.1.0.jar</systemPath>
+            </dependency>
+
+            <!-- TEAMCENTER LIBRARIES -->
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>fccclient</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/fccclient.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>fccjavaclientproxy</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/fccjavaclientproxy.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>fmsclientcache</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/fmsclientcache.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>fmsutil</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/fmsutil.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>fscclient</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/fscclient.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>fscjavaclientproxy</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/fscjavaclientproxy.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>tccommservice</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/tccommservice.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>tcgatewaystubs</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/tcgatewaystubs.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>tcmemjavabinding</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/tcmemjavabinding.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>tcproxyclient</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/tcproxyclient.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>tcserverjavabinding</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/tcserverjavabinding.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>com.teamcenter.lib</groupId>
+                <artifactId>tcserverproxy</artifactId>
+                <version>${teamcenter.version}</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/tcserverproxy.jar</systemPath>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains</groupId>
+                <artifactId>annotations</artifactId>
+                <version>RELEASE</version>
+                <scope>compile</scope>
+            </dependency>
+    </dependencies>
+
+    <build>
+        <!-- Имя сборки-->
+        <finalName>io</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>static/**</include>
+                    <include>templates/**</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- Maven Jar Plugin-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- Класс запуска проекта -->
+                            <mainClass>com.irkut.tc.io.IoApplication</mainClass>
+                            <!-- Префикс каталога зависимстей -->
+                            <classpathPrefix>../lib</classpathPrefix>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                    <!-- Префикс каталогов не входящих в сборку-->
+                    <excludes>
+                        <exclude>bin/**</exclude>
+                        <exclude>logs/**</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <!-- Maven Surefire plugin
+            - <plugin>: Этот тег используется для определения плагинов в Maven;
+            - <groupId>: Идентификатор группы плагина -
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <!-- Maven Compiler Plugin-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId> <!-- Specifies the group ID for the plugin -->
+                <artifactId>maven-compiler-plugin</artifactId> <!-- Specifies the artifact id for the plugin -->
+                <configuration> <!-- Configuration section for the plugin -->
+                    <fork>true</fork> <!-- Configures the plugin to fork a new JVM for the compilation process -->
+                    <source>${java.version}</source> <!-- Specifies the Java source version to use for compilation -->
+                    <target>${java.version}</target> <!-- Specifies the Java target version to generate classes for -->
+                    <compilerVersion>${java.version}</compilerVersion> <!-- Specifies the compiler version to use -->
+                    <encoding>${project.build.sourceEncoding}</encoding> <!-- Specifies the character encoding for compilation -->
+                    <compilerArguments> <!-- Additional compiler arguments -->
+                        <extdirs>${project.basedir}/lib</extdirs> <!-- Specifies additional extension directories for the compiler -->
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <!-- appassembler-maven-plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId> <!-- Группа плагина -->
+                <artifactId>appassembler-maven-plugin</artifactId> <!-- Артефакт плагина -->
+                <version>2.0.0</version> <!-- Версия плагина -->
+                <configuration> <!-- Конфигурационные параметры плагина: -->
+                    <configurationSourceDirectory>src/main/resources</configurationSourceDirectory> <!-- Директория источника конфигурации -->
+                    <configurationDirectory>conf</configurationDirectory> <!-- Директория конфигурации артефакта -->
+                    <copyConfigurationDirectory>true</copyConfigurationDirectory> <!-- Копировать директорию конфигурации? -->
+                    <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath> <!-- Директории конфигурации будет включена в classpath артефакта? -->
+                    <binFileExtensions> <!-- Расширения генерируемых скриптовых файлов: -->
+                        <unix>.sh</unix> <!-- Для unix систем -->
+                        <windows>.bat</windows> <!-- Для windows систем -->
+                    </binFileExtensions>
+                    <assembleDirectory>${project.build.directory}/${project.name}</assembleDirectory> <!-- Директория расположения сборки проекта -->
+                    <repositoryName>lib</repositoryName> <!-- Имя репозитория зависимостей артефакта -->
+                    <binFolder>bin</binFolder> <!-- Имя директории bin -->
+                    <repositoryLayout>flat</repositoryLayout> <!-- Структура репозитория. Может быть простой или иерархичной -->
+                    <encoding>UTF-8</encoding> <!-- Кодировка собранного проекта -->
+                    <programs> <!-- Программы, которые будут собраны плагином:-->
+                        <program> <!-- Конфигурация программы: -->
+                            <mainClass>com.irkut.tc.io.IoApplication</mainClass> <!-- Main класс, в котором расположена точка входа в приложение -->
+                            <name>startup</name> <!-- Имя программы -->
+                            <jvmSettings> <!-- Параметры JVM: -->
+                                <extraArguments>
+                                    <extraArgument>-server</extraArgument>
+                                    <extraArgument>-Xmx1G</extraArgument>
+                                    <extraArgument>-Xms512MB</extraArgument>
+                                </extraArguments>
+                            </jvmSettings>
+                        </program>
+                    </programs>
+                </configuration>
+            </plugin>
+            <!-- Maven Assembly Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Maven Dependency Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                            <includeScope>compile</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${parent.version}</version>
+                <configuration>
+                    <layout>ZIP</layout>
+                    <includes>
+                        <include>
+                            <groupId>non-exists</groupId>
+                            <artifactId>non-exists</artifactId>
+                        </include>
+                    </includes>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

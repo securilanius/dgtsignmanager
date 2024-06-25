@@ -1,0 +1,18 @@
+14:20:53,170 INFO  {           main} IoApplication - Starting IoApplication using Java 1.8.0_212 on tc-frs-sign with PID 6112 (C:\nslabs\idea_2022_prj\io\out\artifacts\io_jar\io.jar started by infodba in C:\nslabs\idea_2022_prj\io\out\artifacts\io_jar)
+14:20:53,174 INFO  {           main} IoApplication - No active profile set, falling back to 1 default profile: "default"
+14:20:54,121 WARN  {           main} AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.context.MissingWebServerFactoryBeanException: No qualifying bean of type 'org.springframework.boot.web.servlet.server.ServletWebServerFactory' available: Unable to start AnnotationConfigServletWebServerApplicationContext due to missing ServletWebServerFactory bean
+14:20:54,137 ERROR {           main} LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web application could not be started as there was no org.springframework.boot.web.servlet.server.ServletWebServerFactory bean defined in the context.
+
+Action:
+
+Check your application's dependencies for a supported servlet web server.
+Check the configured web application type.
+
