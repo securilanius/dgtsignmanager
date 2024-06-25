@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+    <id>assembly</id>
+    <formats>
+        <format>dir</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <!--
+         ________________
+        /    0755 - Клиент имеет права на чтение/запись/выполнение.
+        \    0644
+         ________________
+    -->
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/classes</directory>
+            <outputDirectory>classes</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/main.resources</directory>
+            <outputDirectory>conf</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+        <!-- Настройка упаковки зависимостей проекта -->
+        <fileSet>
+            <directory>${project.basedir}/lib</directory>
+            <outputDirectory>lib</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+    </fileSets>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <excludes>
+                <exclude>${groupId:${artifactId}</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
+</assembly>
